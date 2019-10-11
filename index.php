@@ -74,124 +74,41 @@
 		</div><!--  end advanced search section  -->
 	</section><!--  end search section  -->
 
-
+      
 	<section class="listings">
+		
+		
 		<div class="wrapper">
 			<ul class="properties_list">
+			<?php 
+				include("config/dbconfig.php");
+				$sql = "select * from room";
+				$run = mysqli_query($conn,$sql);
+				$i = 0;
+			while($row = mysqli_fetch_array($run)){
+				$i++;
+				;?>
 				<li>
 					<a href="#">
-						<img src="img/property_1.jpg" alt="" title="" class="property_img"/>
+						<img src="index.php/../img/<?php echo $row['Image']?>" alt="" title="" class="property_img"/>
 					</a>
-					<span class="price">$2500</span>
+					<span class="price"><?php echo $row["Price"];?></span>
 					<div class="property_details">
 						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
+							<a href="#"><?php echo $row["Name"];?></a>
 						</h1>
-						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
+						<h2><?php echo $row["ConTent"];?><span class="property_size">(288ftsq)</span></h2>
 					</div>
 				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_2.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">$1000</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_3.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">$500</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_1.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">$2500</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_2.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">$1000</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_3.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">$500</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_1.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">$2500</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_2.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">$1000</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_3.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">$500</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
-					</div>
-				</li>
+				<?php } ?>
 			</ul>
 			<div class="more_listing">
 				<a href="#" class="more_listing_btn">View More Listings</a>
 			</div>
 		</div>
+		
 	</section>	<!--  end listing section  -->
+	
 
 	<footer>
 		<div class="wrapper footer">
